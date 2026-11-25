@@ -35,12 +35,13 @@
   <p>体験用の架空システムです。病院・人・データは実在せず、外部との通信も保存もしません。許可のない実在のシステムで同じことをするのは、法律に触れるおそれがあります。</p>
   <details><summary>もっと深く知る</summary>
     <p>画面から直接データベースへつなぐ作りを例にしています。間にサーバーを置く作りでは、サーバー側でも本人かを確かめます。</p>
-    <p>「行ごとの制限」は、製品ではRLS（Row Level Security）と呼ばれます。PostgreSQLでは、有効にして決まりが1つもないと、通常の利用者は全員拒否されます。管理用の鍵や表の持ち主は、この制限を通り抜けることがあります。管理用の鍵を画面のコードに入れてはいけません。</p>
+    <p>「行ごとの制限」は、製品ではRLS（Row Level Security）と呼ばれます。PostgreSQLでは、有効にして決まりが1つもないと、通常の利用者は全員拒否されます。管理用の接続コードや表の持ち主は、この制限を通り抜けることがあります。管理用の接続コードを、ページに入れてはいけません。</p>
+    <p>接続コードは、製品ではAPIキーと呼ばれます。公開用と管理用の2種類があり、本編で使ったのは公開用です。</p>
     <p>実際の設定では、読む、追加する、変える、消すを別々に決めます。「変える」では、変えた後の行も本人のものかを確かめます。試験は、架空データの環境で行います。</p>
     <ul>
       <li><a href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html">PostgreSQL公式: 行ごとの制限（英語）</a></li>
       <li><a href="https://supabase.com/docs/guides/database/postgres/row-level-security">Supabase公式: 行ごとの制限（英語）</a></li>
-      <li><a href="https://supabase.com/docs/guides/getting-started/api-keys">Supabase公式: 公開用の鍵と管理用の鍵（英語）</a></li>
+      <li><a href="https://supabase.com/docs/guides/getting-started/api-keys">Supabase公式: 公開用と管理用のAPIキー（英語）</a></li>
       <li><a href="https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys">実際の事例: Moltbook（発見した会社Wizの報告・英語）</a></li>
     </ul>
   </details>

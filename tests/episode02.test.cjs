@@ -28,3 +28,8 @@ test("第2話 通信の命令がなく、URLは .example だけ。会社名が�
   [...t.matchAll(/https?:\/\/([a-z.]+)/g)].forEach((m) => assert.ok(m[1].endsWith(".example"), m[1]));
   ["index.html", "episodes/02/index.html"].forEach((f) => assert.ok(src(f).includes("つむぎや株式会社"), f));
 });
+test("第2話の画面で「鍵」という言葉を使わない。接続コードは最初の場面で説明する", () => {
+  const app = src("episodes/02/app.js");
+  assert.ok(!(app + src("episodes/02/index.html")).includes("鍵"));
+  assert.ok(app.indexOf("どのシステムからの頼みか") > 0 && app.indexOf("どのシステムからの頼みか") < app.indexOf("予約を全部読む"));
+});

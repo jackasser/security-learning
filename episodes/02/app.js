@@ -11,23 +11,24 @@
       var p = K.screen("予約システム", "木村");
       var b = K.btn("自分の予約を見る", "", function () {
         b.hidden = true;
-        K.log("", "", "読む 予約の表  条件: 木村の行  公開用の鍵つき");
+        K.log("", "", "読む 予約の表  条件: 木村の行  接続コードつき");
         p.append(K.table(["番号", "名前", "用件"], E.rows.filter(function (r) { return r.owner === "kimura"; }).map(rowCells)),
-          el("p", "key", "画面のコードにある公開用の鍵: demo-public-0000"));
+          el("p", "key", "ページに入っている接続コード: demo-public-0000"),
+          K.table(["データベースに伝えるもの", "分かること"], [["接続コード", "どのシステムからの頼みか"], ["ログイン", "頼んだのは誰か"]]));
         K.log("safe", "許可：2件", "データベースの返事");
-        K.alertBox("ここまでは普通の動きです。ただし、この鍵はページを開いた人なら誰でも見られます。", true);
+        K.alertBox("接続コードは、ページを開いた人なら誰でも見られます。これだけでは、頼んだのが誰かは分かりません。", true);
         K.ready();
       });
       p.append(b);
     },
     function () {
-      K.say("ログインせずに「予約を全部読む」を押す", "「木村さんの分だけ」という条件を外します。体験用なので、実在のシステムでは試しません。");
+      K.say("ログインせずに「予約を全部読む」を押す", "使うのは接続コードだけです。体験用なので、実在のシステムでは試しません。");
       url("data/reservations");
       var p = K.screen("データベースへ直接", "ログインしていません");
       var b = K.btn("予約を全部読む（見せかけ）", "danger", function () {
         b.disabled = true;
         var got = E.rows.filter(function (r) { return E.decide(null, "read", r, OFF).ok; });
-        K.log("", "", "読む 予約の表  条件: なし  公開用の鍵つき");
+        K.log("", "", "読む 予約の表  条件: なし  接続コードつき");
         K.log("leak", "許可：" + got.length + "件すべて", "データベースの返事");
         p.append(K.table(["番号", "名前", "用件"], got.slice(0, 5).map(rowCells)), el("p", "", "ほか " + (got.length - 5) + "件"));
         K.setCount(got.length);
@@ -44,7 +45,7 @@
       var b = K.btn(r.name + "さんの予約を取り消す（見せかけ）", "danger", function () {
         b.disabled = true;
         var d = E.decide(null, "write", r, OFF);
-        K.log("", "", "消す 予約の表  番号 = " + r.id + "  公開用の鍵つき");
+        K.log("", "", "消す 予約の表  番号 = " + r.id + "  接続コードつき");
         K.log(d.ok ? "leak" : "safe", d.ok ? "許可：他人の予約が消えた" : "拒否", "データベースの返事");
         p.querySelector("tbody").replaceChildren();
         K.alertBox("予約が消えました。本人は、病院に着くまで気づかないかもしれません。");
