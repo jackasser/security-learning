@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' file:; script-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>ログインなしで読める予約データ｜第2話（試作）</title>
+<link rel="stylesheet" href="../01/style.css">
+<link rel="stylesheet" href="extra.css">
+</head>
+<body>
+<header class="top">
+  <h1>ログインなしで読める予約データ</h1>
+  <p class="count"><span>他人に読まれた予約</span> <b id="count">0</b><span> / 180件</span></p>
+</header>
+<ol class="steps" id="steps" aria-label="進み具合"></ol>
+<section class="mission" aria-labelledby="todo">
+  <h2 id="todo" tabindex="-1"></h2>
+  <p id="why"></p>
+  <button id="next" type="button" hidden>次へ進む</button>
+</section>
+<main class="stage">
+  <section class="browser" id="browser" aria-label="架空の予約システム">
+    <div class="chrome"><i></i><i></i><i></i><p class="addr plain" id="url"></p></div>
+    <div id="app" class="app"></div>
+  </section>
+  <section class="monitor" aria-labelledby="mh">
+    <h3 id="mh">通信モニター</h3>
+    <p class="hint">画面がデータベース（情報を表の形で保管する場所）に何を頼み、どう返されたかが見えます。</p>
+    <ol id="log" class="log" role="log" aria-live="polite" tabindex="0" aria-label="通信の記録"></ol>
+  </section>
+</main>
+<footer>
+  <p>体験用の架空システムです。病院・人・データは実在せず、外部との通信も保存もしません。許可のない実在のシステムで同じことをするのは、法律に触れるおそれがあります。</p>
+  <details><summary>もっと深く知る</summary>
+    <p>画面から直接データベースへつなぐ作りを例にしています。間にサーバーを置く作りでは、サーバー側でも本人かを確かめます。</p>
+    <p>「行ごとの制限」は、製品ではRLS（Row Level Security）と呼ばれます。PostgreSQLでは、有効にして決まりが1つもないと、通常の利用者は全員拒否されます。管理用の鍵や表の持ち主は、この制限を通り抜けることがあります。管理用の鍵を画面のコードに入れてはいけません。</p>
+    <p>実際の設定では、読む、追加する、変える、消すを別々に決めます。「変える」では、変えた後の行も本人のものかを確かめます。試験は、架空データの環境で行います。</p>
+    <ul>
+      <li><a href="https://www.postgresql.org/docs/current/ddl-rowsecurity.html">PostgreSQL公式: 行ごとの制限（英語）</a></li>
+      <li><a href="https://supabase.com/docs/guides/database/postgres/row-level-security">Supabase公式: 行ごとの制限（英語）</a></li>
+      <li><a href="https://supabase.com/docs/guides/getting-started/api-keys">Supabase公式: 公開用の鍵と管理用の鍵（英語）</a></li>
+      <li><a href="https://www.wiz.io/blog/exposed-moltbook-database-reveals-millions-of-api-keys">実際の事例: Moltbook（発見した会社Wizの報告・英語）</a></li>
+    </ul>
+  </details>
+  <p><a href="../../index.html">目次へ</a>　つむぎや株式会社（試作）</p>
+</footer>
+<noscript><p>この教材を動かすには、JavaScriptが必要です。</p></noscript>
+<script src="engine.js"></script>
+<script src="../kit.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

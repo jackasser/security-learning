@@ -1,0 +1,118 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' file:; script-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>退職した人が、まだ名簿を見ている｜第1話（試作）</title>
+<link rel="stylesheet" href="deep.css">
+</head>
+<body>
+<a class="skip" href="#main">本文へ進む</a>
+<header class="top">
+  <div class="wrap">
+    <p><a href="index.html">かんたん版へ戻る</a></p>
+    <h1>退職した人が、<br>まだ名簿を見ている。</h1>
+    <p class="lead">社員が、顧客名簿のツールをAIで1日で作りました。便利だと喜ばれました。3か月後、退職した田中さんが、まだ名簿を開いていました。なぜ見えるのか。どこを直せば止まるのか。自分で操作して確かめます。</p>
+    <p>会社も人もデータも架空です。このページは、入力した内容を送信も保存もしません。</p>
+    <noscript><p class="warn">この教材は、操作を動かすためにJavaScriptが必要です。</p></noscript>
+  </div>
+</header>
+<main class="wrap" id="main" tabindex="-1">
+<section aria-labelledby="h1">
+  <h2 id="h1">1. 正しく使えている状態を見る</h2>
+  <p>あなたは営業の佐藤さんです。ツールの約束は<strong>「自分が担当する顧客だけ見える」</strong>。101番と102番が担当です。どちらかのボタンを押してください。</p>
+  <div id="sim1"></div>
+  <p>問題なく使えます。<strong>弱点は、ふつうに使っているだけでは見えません。</strong></p>
+</section>
+<section aria-labelledby="h2">
+  <h2 id="h2">2. 何が間違っているかを探す</h2>
+  <p>名簿の中身は、あなたの画面ではなく、離れた場所のコンピューターにあります。これを<strong>サーバー</strong>と呼びます。画面は「101番をください」と頼み、サーバーが返します。</p>
+  <p>AIが作ったサーバーの動きを、日本語にするとこうです。</p>
+  <pre>「○番をください」と頼まれたら、
+○番の顧客を探して、返す。</pre>
+  <fieldset><legend>足りない確認はどれですか</legend><div id="quiz"></div></fieldset>
+  <p id="quizOut" class="out" role="status"></p>
+</section>
+<section aria-labelledby="h3">
+  <h2 id="h3">3. 攻撃する側になってみる</h2>
+  <p><strong>試すのは、この画面の架空のデータだけです。許可のない実在のサービスで同じことをしてはいけません。</strong></p>
+  <p>あなたは、3か月前に退職した田中さんです。ログインするための登録（アカウント）は止められていません。退職者が入れることに加えて、もう1つ弱点があります。一覧に出るのは、昔の担当の103番だけです。<strong>URLの最後の番号を変えて、一覧にない、違う番号の顧客を3件開いてください。</strong>番号は101から105です。</p>
+  <div id="sim3"></div>
+  <p id="goal" class="out" role="status">一覧にない顧客: 0件 / 3件</p>
+</section>
+<section aria-labelledby="h4">
+  <h2 id="h4">4. どこまで広がるかを知る</h2>
+  <p>いまは手で番号を変えました。プログラムを使えば、番号を順に変える作業を自動にできます。番号を知っている必要はありません。</p>
+  <ul>
+    <li><strong>顧客</strong>は、未公開の計画や緊急連絡先を知られます。</li>
+    <li><strong>会社</strong>は、調べ、連絡し、説明します。信用も失いかねません。</li>
+    <li><strong>作った人</strong>は、便利にしようとしただけでも、止め方と直し方を求められます。</li>
+  </ul>
+  <p>パスワードを盗む必要も、画面を壊す必要もありませんでした。<strong>頼めば返ってきた</strong>のです。ただし、同じ弱点でも、会社の外のインターネットから使えるか、何が入っているかで被害の大きさは変わります。</p>
+</section>
+<section aria-labelledby="h5">
+  <h2 id="h5">5. 直して、もう一度攻撃する</h2>
+  <p>チェックを1つ入れるたびに、下の4つの結果がどう変わるか見てください。目標は、<strong>佐藤さんの仕事は止めず、ほかの3つを止める</strong>ことです。</p>
+  <fieldset><legend>入れる対策</legend><div id="fixes"></div></fieldset>
+  <div id="cases"></div>
+  <p id="fixOut" class="out" role="status"></p>
+  <details><summary>なぜ「一覧を隠す」では止まらないのか</summary><p>隠したのは画面だけです。サーバーへ番号を直接頼めば、返事は変わりません。記録も、止める働きはありません。誰が何を見たかを後で調べるために必要です。</p></details>
+  <p><strong>直しても、すでに写し取られた名簿は戻りません。</strong>止めた後に、記録を残し、会社の担当者へ知らせます。</p>
+</section>
+<section aria-labelledby="h6">
+  <h2 id="h6">6. 自分の職場でやる</h2>
+  <p class="warn">試す前に、会社とツールの管理者の許可を取ります。試験用のアカウントと架空のデータを使います。他人のアカウントや実在の顧客番号は使いません。許可がなければ、操作せずに相談してください。</p>
+  <ol>
+    <li>試験用アカウントAとBを用意し、それぞれ架空の顧客を1件登録します。</li>
+    <li>Bでログインし、Bの顧客のページを開いてURLを控えます。次にAでログインし直し、そのURLを開きます。<strong>顧客の情報が返らなければ合格</strong>です。</li>
+    <li>ログアウトして、同じURLを開きます。情報が返らなければ合格です。</li>
+    <li>Aのアカウントを止め、Aの顧客を開きます。開けなければ合格です。止める前から開いていた画面でも、読み込み直して確かめます。</li>
+    <li>Aを戻し、Aの顧客を開けるか確かめます。仕事が止まっていないことも合格の条件です。</li>
+    <li>試験用のアカウントとデータを片づけ、結果を管理者へ伝えます。</li>
+  </ol>
+  <p>見えてはいけない情報が見えたら、ほかの番号は試しません。見えた内容を広げず、時刻と操作を記録し、すぐ管理者へ知らせます。</p>
+  <h3>社内ツールの台帳</h3>
+  <p>書いた内容はこの画面だけにあり、閉じると消えます。パスワードや個人情報は書かないでください。</p>
+  <div id="ledger" class="ledger"></div>
+  <button type="button" id="copy">台帳をコピーする</button>
+  <p id="copyOut" class="out" role="status"></p>
+  <h3>2人で話す</h3>
+  <p>同僚か管理者と話してください。うちの会社で、退職した人のアカウントを止めるのは誰ですか。ツールを作った人が辞めたら、誰が止めますか。</p>
+  <h3>最後に、自分の言葉で</h3>
+  <p>佐藤さんが104番を開くのは、どの対策で止まりましたか。その対策だけでは、田中さんが103番を開けるのはなぜですか。声に出して説明してみてください。</p>
+  <details><summary>答え合わせ</summary><p>104番は「その顧客の担当かをサーバーで確かめる」で止まります。103番は田中さんの昔の担当なので、担当の確認は通ります。「退職した人のアカウントを止める」も必要です。</p></details>
+</section>
+<section aria-labelledby="h7">
+  <h2 id="h7">もっと深く</h2>
+  <details><summary>通信と記録では、どう見えるか</summary>
+<pre>頼みごと   GET /customers/104   利用者: 佐藤
+直す前     200          104番の中身を返す
+直した後   403または404  中身を返さない</pre>
+  <p>記録には、時刻、利用者、頼まれた番号、許したか断ったかを残します。顧客の中身は記録に書きません。1人が番号を順に開いていたら調べます。</p></details>
+  <details><summary>コードでは、どこが違うか</summary>
+<pre>// 弱い例: 番号だけで探す
+customer = find(id)
+
+// 直した例: 本人を確かめ、権限の条件を付けて探す
+user = currentUser()   // サーバーが確かめた本人
+if (!user || !user.active) return 403
+customer = find({ id: id, ownerId: user.id })
+if (!customer) return 404</pre>
+  <p>考え方を示す略した例で、そのままは動きません。利用者の情報は、画面から送られた値ではなく、サーバーが確かめたログイン情報から取ります。退職の処理では、アカウントのほか、ログイン中の状態、共有リンク、連携用の鍵も止めます。番号を推測しにくくしても、権限の確認の代わりにはなりません。</p></details>
+  <h3>参考URL</h3>
+  <ul>
+    <li><a href="https://owasp.org/API-Security/editions/2023/en/0xa1-broken-object-level-authorization/">OWASP API1:2023（番号などを変えて他人のデータを読む弱点・英語）</a></li>
+    <li><a href="https://cheatsheetseries.owasp.org/cheatsheets/Authorization_Cheat_Sheet.html">OWASP 権限確認の手引き（英語）</a></li>
+    <li><a href="https://www.ipa.go.jp/security/vuln/websecurity/about.html">IPA「安全なウェブサイトの作り方」</a></li>
+    <li><a href="https://owasp.org/www-project-juice-shop/">OWASP Juice Shop（自分のPCの隔離した環境で使う練習用アプリ・英語）</a></li>
+  </ul>
+  <p>URLへ届くことを2026年11月25日に確認しました。</p>
+</section>
+</main>
+<footer class="wrap"><p>つむぎや株式会社。試作版。コードはMIT、教材の文章と図は<a href="https://creativecommons.org/licenses/by/4.0/deed.ja">CC BY 4.0</a>の予定です。</p></footer>
+<script src="engine.js"></script>
+<script src="deep.js"></script>
+</body>
+</html>

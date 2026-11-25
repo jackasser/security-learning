@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="dark">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self' file:; script-src 'self' file:; base-uri 'none'; form-action 'none'">
+<title>退職者アカウントからの情報漏えい｜第1話（試作）</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header class="top">
+  <h1>退職者アカウントからの情報漏えい</h1>
+  <p class="count"><span id="countLabel">流出した顧客情報</span> <b id="count">0</b><span> / 240件</span></p>
+</header>
+<ol class="steps" id="steps" aria-label="進み具合"></ol>
+<section class="mission" aria-labelledby="todo">
+  <h2 id="todo" tabindex="-1"></h2>
+  <p id="why"></p>
+  <button id="next" type="button" hidden>次へ進む</button>
+</section>
+<main class="stage">
+  <section class="browser" aria-label="架空の顧客管理システム">
+    <div class="chrome"><i></i><i></i><i></i>
+      <form id="addr" class="addr" novalidate><label for="num"><span>https://</span>crm.example/customers/</label><input id="num" inputmode="numeric" maxlength="3" autocomplete="off" aria-label="URLの最後の番号"><button id="open" type="submit">開く</button></form>
+    </div>
+    <div id="app" class="app"></div>
+  </section>
+  <section class="monitor" aria-labelledby="mh">
+    <h3 id="mh">通信モニター</h3>
+    <p class="hint">画面がサーバー（情報を保管するコンピューター）に何を頼み、どう返されたかが見えます。</p>
+    <ol id="log" class="log" role="log" aria-live="polite" tabindex="0" aria-label="通信の記録"></ol>
+  </section>
+</main>
+<footer><p>体験用の架空システムです。会社・人・データは実在せず、外部との通信も保存もしません。許可のない実在のシステムで同じことをするのは、法律に触れるおそれがあります。</p><p><a href="deep.html">もっと深く知る</a>　つむぎや株式会社（試作）</p></footer>
+<noscript><p>この教材を動かすには、JavaScriptが必要です。</p></noscript>
+<script src="engine.js"></script>
+<script src="app.js"></script>
+</body>
+</html>

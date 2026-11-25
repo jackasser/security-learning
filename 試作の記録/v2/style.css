@@ -1,0 +1,36 @@
+:root{--ai:#20406b;--ink:#1c2733;--ki:#f1f4f0;--beni:#a32b41;--midori:#23694a;--usu:#dfe7ef}
+*{box-sizing:border-box}
+body{margin:0;background:var(--ki);color:var(--ink);font:1.2rem/1.7 "BIZ UDPGothic","Hiragino Kaku Gothic ProN","Yu Gothic UI",Meiryo,sans-serif}
+main{max-width:44rem;margin:auto;padding:1.25rem 1.25rem 2rem}
+.step{margin:0;color:var(--ai);font-weight:700;font-size:1rem}
+h1{font-size:clamp(1.5rem,5.5vw,2.2rem);line-height:1.4;color:var(--ai);margin:.2rem 0 .5rem;word-break:auto-phrase}
+h1:focus{outline:none}
+.text{word-break:auto-phrase;margin:0 0 1rem}
+.scene{display:grid;grid-template-columns:1fr 1fr 1fr;gap:.5rem;align-items:end;background:#fff;border-radius:1rem;padding:1.25rem .75rem;position:relative}
+.scene:empty,.result:empty{display:none}
+.fig{word-break:auto-phrase;text-align:center;font-weight:700;font-size:1rem;line-height:1.4}
+.fig small{display:block;font-weight:400;font-size:.95rem}
+.fig svg{width:min(100%,6.5rem);height:auto;display:block;margin:0 auto .3rem}
+.say{margin:0;grid-column:1/-1;background:var(--usu);border-radius:.8rem;padding:.5rem .9rem;justify-self:start}
+.say.r{justify-self:end}
+.say.leak{background:var(--beni);color:#fff}
+.say.fine{background:var(--midori);color:#fff}
+.result{font-weight:700;font-size:1.3rem;margin:1rem 0 0}
+.good{color:var(--midori)}
+.bad{color:var(--beni)}
+.act{display:grid;gap:.6rem;margin-top:1rem}
+button{font:inherit;font-weight:700;background:var(--ai);color:#fff;border:3px solid var(--ai);border-radius:.8rem;padding:.6rem 1.1rem;min-height:3.25rem;cursor:pointer}
+button.quiet{background:#fff;color:var(--ai)}
+:focus-visible{outline:4px solid #b36b00;outline-offset:3px}
+.nav{display:flex;justify-content:space-between;margin-top:1.5rem}
+[hidden]{display:none!important}
+.address{background:#fff;border-radius:1rem;padding:.8rem 1.25rem}
+.address p{margin:0;font-size:1rem}
+.address .addr{border:3px solid var(--ai);border-radius:2rem;padding:.5rem 1rem;margin:.3rem 0;font-size:1.15rem}
+.addr b{background:#f3d48a;padding:.1rem .4rem;border-radius:.3rem}
+.asks{background:#fff;border-radius:1rem;margin:0;padding:1rem 1.25rem}
+.asks{padding-left:2.5rem}
+.asks li{padding:.3rem 0;font-weight:700}
+a{color:var(--ai)}
+footer{max-width:44rem;margin:auto;padding:0 1.25rem 2rem;font-size:1rem}
+footer p{margin:0}

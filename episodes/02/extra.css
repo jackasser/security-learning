@@ -1,0 +1,11 @@
+.addr.plain{margin:0 0 0 .5rem;padding:.55rem .9rem;color:#1a2430}
+.app table.list th,.app table.list td{width:auto}
+.app table.list{margin:.5rem 0 1rem}
+.key{background:#fff3cf;border:2px solid #a86a00;border-radius:.3rem;padding:.5rem .8rem;overflow-wrap:anywhere}
+.set{border:2px solid #8796a6;border-radius:.4rem;margin:0 0 .75rem;padding:.5rem .9rem .7rem;min-width:0}
+.set legend{font-weight:700;padding-inline:.3rem}
+.set:disabled{opacity:.5}
+.set label{display:inline-flex;gap:.4rem;align-items:center;min-height:2.6rem;margin-right:1.2rem;cursor:pointer}
+.set input{width:1.3rem;height:1.3rem;accent-color:#17654a}
+footer details{border-block:1px solid var(--line);padding:.6rem 0;margin:.8rem 0}
+footer summary{cursor:pointer;font-weight:700;color:var(--fg)}

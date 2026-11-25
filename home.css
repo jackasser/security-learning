@@ -1,0 +1,8 @@
+.home{max-width:76rem;margin:auto;padding:3rem 1.25rem 1rem}
+.home h1{font-size:clamp(1.8rem,6vw,3.2rem);line-height:1.35;color:var(--ki);margin:0 0 .6rem}
+.home p{max-width:40em;margin:0 0 2rem}
+.home ol{list-style:none;margin:0;padding:0;display:grid;gap:1rem}
+.home a{display:block;background:var(--panel);border:1px solid var(--line);border-left:8px solid var(--aka);border-radius:.5rem;padding:1rem 1.25rem;color:var(--fg);text-decoration:none}
+.home a:hover{border-color:var(--ao)}
+.home a b{display:block;font-size:1.3rem}
+.home a span{color:var(--sub)}
